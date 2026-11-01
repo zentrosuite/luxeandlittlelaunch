@@ -13,7 +13,7 @@ Laravel shop goes live on Wasmer. Plain HTML/CSS/JS: no build step, GitHub Pages
 | Effect | AnimatedWebs template | File |
 | --- | --- | --- |
 | Moving silk background (WebGL) | Domain Warped Flow Field — "Gossamer Weave" | `assets/js/silk.js` |
-| Name drawn in ink | Ink Spread Text Reveal — "Quillforge" | `assets/js/ink.js` |
+| Name inking in letter by letter | Ink Spread Text Reveal — "Quillforge" (rebuilt in CSS for smoothness) | `site.css` (`.name`) |
 | Words drifting out of blur | Soft Blur-In Words — "Sereno" | `assets/js/main.js`, `site.css` |
 | Lace veil lifting off images | Lace Veil Image Reveal — "Veil Atelier" | `site.css` |
 

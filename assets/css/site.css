@@ -40,7 +40,30 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .hero-inner{display:grid;justify-items:center;gap:14px;text-align:center;width:100%;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 .emblem{width:clamp(108px,30vw,170px);aspect-ratio:425/480}
 .emblem img{width:100%;height:auto} /* no drop-shadow: the veil clips it into a visible box */
-.ink{display:block;width:min(100%,1040px);height:90px;margin-top:6px}
+/* ---- Name: ink spreading into paper, letter by letter ----
+   After AnimatedWebs "Ink Spread Text Reveal" (Quillforge), rebuilt for the GPU: each letter opens from
+   a soft gold blot (radial mask growing from its centre) while it sharpens and dries to bronze.
+   Only opacity/transform/filter animate, plus one small mask per letter: smooth on phones. */
+@property --ink{syntax:"<percentage>";inherits:false;initial-value:0%}
+.name{display:flex;justify-content:center;align-items:baseline;flex-wrap:nowrap;margin-top:6px;
+  font:500 clamp(30px,9.4vw,116px)/1.1 var(--serif);letter-spacing:.14em;margin-right:-.14em;color:var(--bronze-d);white-space:nowrap}
+.name .ch{display:inline-block;opacity:0;--ink:0%;
+  -webkit-mask:radial-gradient(circle at 50% 55%,#000 var(--ink),transparent calc(var(--ink) + 22%));
+  mask:radial-gradient(circle at 50% 55%,#000 var(--ink),transparent calc(var(--ink) + 22%));
+  filter:blur(9px);transform:translateY(.06em) scale(1.05);color:var(--gold)}
+.name .amp{font-style:italic;color:var(--gold);letter-spacing:0;margin-right:.14em}
+.name .sp{display:inline-block;width:.32em}
+.name.in .ch{animation:ink 1.25s var(--ease) forwards;animation-delay:calc(var(--i) * 85ms)}
+.name.in .amp{animation-name:ink-amp}
+@keyframes ink{
+  0%{opacity:0;--ink:0%;filter:blur(9px);transform:translateY(.06em) scale(1.05);color:var(--gold)}
+  35%{opacity:1}
+  70%{filter:blur(1.2px);color:var(--bronze)}
+  100%{opacity:1;--ink:110%;filter:blur(0);transform:none;color:var(--bronze-d)}}
+@keyframes ink-amp{
+  0%{opacity:0;--ink:0%;filter:blur(9px);transform:translateY(.06em) scale(1.05)}
+  35%{opacity:1}
+  100%{opacity:1;--ink:110%;filter:blur(0);transform:none}}
 .tagline{font:italic 500 clamp(22px,5.4vw,34px)/1.2 var(--serif);color:var(--bronze)}
 .kicker{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:10px}
 
@@ -124,7 +147,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .foot-links a{text-decoration:none;border-bottom:1px solid var(--line)}
 .foot small{color:var(--muted);font-size:12px}
 
-@media (min-width:760px){.ink{height:150px}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation:none!important;scroll-behavior:auto!important}
   .veil::before{display:none}

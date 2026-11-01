@@ -64,7 +64,7 @@ void main(){
   const uTime = gl.getUniformLocation(prog, 'uTime');
 
   // Render scale: the field is soft, so half resolution (a third on phones) is invisible.
-  const scale = mobile ? 0.34 : 0.5;
+  const scale = mobile ? 0.34 : 0.4;
   const resize = () => {
     const w = Math.max(1, Math.round(canvas.clientWidth * scale));
     const h = Math.max(1, Math.round(canvas.clientHeight * scale));

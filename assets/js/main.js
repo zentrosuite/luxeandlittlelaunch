@@ -1,5 +1,4 @@
 import { silk } from './silk.js';
-import { ink } from './ink.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -31,11 +30,14 @@ const io = 'IntersectionObserver' in window
 const hero = $('.hero');
 const lift = () => $$('.veil', hero).forEach(reveal);
 setTimeout(lift, reduce ? 0 : 250);
-ink($('#ink'), {
-  onDone: () => {
-    $$('[data-blur], .countdown, .ctas, .scroll-cue', hero).forEach((el, i) => setTimeout(() => reveal(el), reduce ? 0 : i * 260));
-  },
-});
+// The name inks in letter by letter (pure CSS, see .name in site.css); the rest follows.
+const name = $('.name');
+const startName = () => name.classList.add('in');
+document.fonts.load('500 60px "Cormorant Garamond"').finally(() => setTimeout(startName, reduce ? 0 : 450));
+const letters = name.querySelectorAll('.ch').length;
+setTimeout(() => {
+  $$('[data-blur], .countdown, .ctas, .scroll-cue', hero).forEach((el, i) => setTimeout(() => reveal(el), reduce ? 0 : i * 240));
+}, reduce ? 0 : 450 + letters * 85 + 900);
 
 // Everything below the hero reveals as it scrolls into view (lace veils, words, cards).
 $$('main > section:not(.hero) [data-blur], main > section:not(.hero) .veil, .reveal').forEach((el) => (io ? io.observe(el) : reveal(el)));
