@@ -6,7 +6,7 @@ Laravel shop goes live on Wasmer. Plain HTML/CSS/JS: no build step, GitHub Pages
 ## What's on it
 - Logo emblem unveiled under a lace veil, the name written in ink, tagline blurring in
 - Countdown to the planned opening, **1 December 2026, 10:00 IST** (`assets/js/main.js`, `target`)
-- Instagram **@luxeandlittle_** and WhatsApp **+91 80565 56341** buttons
+- Instagram **@luxeandlittle_** and WhatsApp **+91 80156 11705** buttons; footer also lists call **+91 80565 56341**
 - What's coming: abayas, hijabs, Korean accessories; four store promises
 
 ## Motion (free AnimatedWebs templates, rebuilt in the brand)
