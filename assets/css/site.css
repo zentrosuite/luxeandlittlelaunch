@@ -158,6 +158,25 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 }
 @media (max-width:520px){.foot-links{flex-direction:column;gap:6px}.foot-links span{display:none}}
 
+/* WhatsApp group invite */
+.join{padding-block:0 64px}
+.join-panel{display:flex;align-items:center;justify-content:space-between;gap:28px;max-width:760px;margin-inline:auto;
+  padding:28px clamp(20px,5vw,40px);background:var(--glass);border:1px solid var(--line);border-radius:22px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.join-text{display:grid;gap:10px;justify-items:start}
+.join h2{font-size:clamp(28px,6vw,40px);color:var(--ink);line-height:1.1}
+.join p{color:var(--muted);font-size:16px;max-width:34ch}
+.join .btn{margin-top:6px}
+.join-qr{margin:0;display:grid;justify-items:center;gap:8px;flex:none}
+.join-qr img{display:block;width:132px;height:132px;padding:12px;background:var(--cream);border-radius:14px;border:1px solid var(--line);box-sizing:content-box}
+.join-qr figcaption{font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){
+  .join{padding-block:0 28px}
+  .join-panel{padding:24px 20px}
+  .join-text{justify-items:center;text-align:center;width:100%}
+  .join-qr{display:none} /* on a phone the button is the way in */
+}
+
 /* Phones: let the hero be as tall as its content and keep section gaps tight
    (a full-screen hero on tall phones left empty space below the buttons). */
 @media (max-width:760px){

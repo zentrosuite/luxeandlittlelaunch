@@ -22,7 +22,7 @@ effect; everything pauses when the tab is hidden and holds still for "reduce mot
 
 ## Edit
 - Opening date: `assets/js/main.js` → `target`, and the "Opening around…" line in `index.html`.
-- Links: search `index.html` for `instagram.com` and `wa.me`.
+- Links: search `index.html` for `instagram.com`, `wa.me` and `chat.whatsapp.com` (group invite; also regenerate `assets/img/qr-group.svg` if the invite link is reset).
 - Bump `?v=` on the CSS/JS links in `index.html` after editing so phones fetch the new files.
 
 ## GitHub Pages
